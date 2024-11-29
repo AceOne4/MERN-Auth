@@ -2,7 +2,10 @@ import { create } from "zustand";
 import axios from "axios";
 import { TRespond, TUser } from "../type/type";
 
-const API_URL = "http://localhost:8000/api/auth";
+const API_URL =
+  import.meta.env.MODE == "devlopment"
+    ? "http://localhost:8000/api/auth"
+    : "/api/auth";
 
 interface AuthStore {
   user: TUser | null; // Adjust this based on your actual user object shape
